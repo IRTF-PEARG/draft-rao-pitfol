@@ -1,4 +1,4 @@
-DRAFTS = rao-pitfol-01 
+DRAFTS = rao-pitfol-00 
 OUTPUTS = $(foreach draft,$(DRAFTS),draft-${draft}.html draft-${draft}.txt)
 STAGING = staging.xml
 
