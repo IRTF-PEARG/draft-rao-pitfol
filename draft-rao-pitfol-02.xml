@@ -10,6 +10,7 @@
 <?rfc inline="yes"?>
 <?rfc compact="yes"?>
 <?rfc subcompact="no"?>
+<rfc category="exp" docName="draft-rao-pitfol-02" ipr="trust200902">
   <front>
     <title abbrev="PITFoL">Personal Information Tagging for Logs</title>
 
@@ -117,7 +118,7 @@
       </address>
     </author>
 
-    <date day="9" month="July" year="2020"/>
+    <date day="13" month="July" year="2020"/>
 
     <abstract>
       <t>Software systems typically generate log messages in the course of
@@ -559,20 +560,20 @@
 
       <t>If the privacy marking or classification changes for a log, for
       historical logs, the change of privacy classification is applied on
-      subsequent access of the log. </t>
+      subsequent access of the log.</t>
 
       <t>*TODO*: In case of logs that are not tagged or marked with personal
       information, an out-of-band mechanism to communicate log template or
       schema with personal data identifiers can be considered. Such a
       mechansim can also be used to notify changes to privacy tagging or
-      classification. </t>
+      classification.</t>
     </section>
 
     <section anchor="Acknowledgements" title="Acknowledgements">
       <t>The authors would like to thank everyone who provided helpful
       comments at the mic at IETF 106 during the PEARG session. Thanks also to
       Joe Salowey for thoughts on aspects of log transformations, change of
-      privacy classifications, models for privacy markings. </t>
+      privacy classifications, models for privacy markings.</t>
     </section>
   </middle>
 
