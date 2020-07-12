@@ -10,7 +10,6 @@
 <?rfc inline="yes"?>
 <?rfc compact="yes"?>
 <?rfc subcompact="no"?>
-<rfc category="exp" docName="draft-rao-pitfol-02" ipr="trust200902">
   <front>
     <title abbrev="PITFoL">Personal Information Tagging for Logs</title>
 
@@ -579,7 +578,7 @@
 
   <back>
     <references title="Normative References">
-      <?rfc include="reference.RFC.2119" 
+      <?rfc include="reference.RFC.2119"
 
 include="reference.RFC.3164"
 
