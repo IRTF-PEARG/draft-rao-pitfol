@@ -292,27 +292,27 @@ Internet-Draft                   PITFoL                       March 2020
    |                  |                 | sovereign      |             |
    |                  |                 | governments.   |             |
    |                  |                 | Eg., SSN       |             |
-   | drivingLicense   | String          | Driving        | 5           |
+   | drivingLicense   | String          |  Driving       | 5           |
    |                  |                 | License number |             |
-   | taxIdentity      | String          | Tax            | 5           |
+   | taxIdentity      | String          |  Tax           | 5           |
    |                  |                 | identification |             |
    |                  |                 | numbers        |             |
-   | credtCardNumber  | String          | Credit cards   | 5           |
-   | bankAccount      | String          | Bank account   | 5           |
+   | credtCardNumber  | String          |  Credit cards  | 5           |
+   | bankAccount      | String          |  Bank account  | 5           |
    |                  |                 | number         |             |
-   | dateOfBirth      | Date            | Date of Birth  | 4           |
-   | personName       | String          | Person name    | 5           |
+   | dateOfBirth      | Date            |  Date of Birth | 4           |
+   | personName       | String          |  Person name   | 5           |
    | emailAddress     | String          | Email          | 4           |
    | phoneNumber      | Number          | Phone          | 5           |
-   | zipCode          | Integer         | Zip codes      | 2           |
-   | ipAddress        | ipv4Address     | IPv4 or IPv6   | 4           |
+   | zipCode          | Integer         |  Zip codes     | 2           |
+   | ipAddress        | ipv4Address     |  IPv4 or IPv6  | 4           |
    |                  |                 | Address        |             |
    | dateTimeSeconds  | dateTimeSeconds | seconds        | 1           |
    | age              | Integer         | Age            | 3           |
    | ethnicGroup      | String          | Ethnic group   | 5           |
-   | genderIdentity   | String          | Gender         | 5           |
+   | genderIdentity   | String          |  Gender        | 5           |
    |                  |                 | identity       |             |
-   | macAddress       | macAddress      | MAC Address    | 4           |
+   | macAddress       | macAddress      |  MAC Address   | 4           |
    +------------------+-----------------+----------------+-------------+
 
              Personal Information Identifiers Registry Example

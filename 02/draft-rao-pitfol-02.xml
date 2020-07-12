@@ -174,7 +174,7 @@
     </section>
 
     <section title="Terminology">
-      <t>Personal data: RFC 6973 [RFC6973] defines personal data as "any
+      <t>*Personal data:* RFC 6973 [RFC6973] defines personal data as "any
       information relating to an individual who can be identified, directly or
       indirectly." This typically includes information such as IP addresses,
       username, email address, financial data, passwords and so on. However,
@@ -185,7 +185,7 @@
       would look like once a logging application has determined which fields
       it considers to hold personal data.</t>
 
-      <t>Structured logging: Most applications generate logs in a
+      <t>*Structured logging:* Most applications generate logs in a
       unidimensional format that twine together logic status and input data.
       This makes log output largely free flowing and unstructured without
       specific delimiters making it hard to segregate personal information
@@ -194,10 +194,11 @@
       and semantic information to enable easy parsing and identification of
       specific information in the log.</t>
 
-      <t>Sensitivity Level: Sensitivity level defines the degree of
+      <t>*Privacy Sensitivity Level:* Sensitivity level defines the degree of
       sensitivity of a data in log template or schema. Level can be enumerated
-      on a scale 1 to 5 and defined as follows: 1 - Highly Sensitive (e.g.
-      national id) and 5 - Normal (e.g. hash value)</t>
+      on a scale 1 to 5 and defined as follows: 1 - Low risk for leaking
+      private information and 5 - Very high risk for leaking private
+      information&gt;</t>
     </section>
 
     <section title="Motivation and Use Cases">
@@ -219,28 +220,28 @@
       expressions, data or dataset based training models, pattern recognition,
       checksum matching, building custom logic.</t>
 
-      <t>Inconsistent Representation - When applications, services or devices,
-      log personal information, there is no consistency in the representation
-      of the information. For example the name of a user is often logged as
-      either &ldquo;fullname&rdquo; (e.g. John Doe) or with
+      <t>*Inconsistent Representation:* When applications, services or
+      devices, log personal information, there is no consistency in the
+      representation of the information. For example the name of a user is
+      often logged as either &ldquo;fullname&rdquo; (e.g. John Doe) or with
       &ldquo;firstname&rdquo; (John) and &ldquo;lastname&rdquo; (Doe).</t>
 
-      <t>Context - In most cases, what data is considered personal and
+      <t>*Context:* In most cases, what data is considered personal and
       sensitive is subjective, provisional and contextual to the data source
       or the application processing the data, which makes it hard to use
       automated techniques to identify personal data. Even for a specific
       domain, it's controversial whether it is possible to definitively say
       that a piece of data is NOT identifying.</t>
 
-      <t>Disparate Types of Personal Data - There are many disparate types of
+      <t>*Disparate Types of Personal Data:* There are many disparate types of
       personal data and often require a multitude approaches for
       detection.</t>
 
-      <t>Lack of standards - There are no standards that govern formats of
+      <t>*Lack of standards:* There are no standards that govern formats of
       sensitive data making automation difficult for most common use
       cases.</t>
 
-      <t>Detection Accuracy - Most of the current PII detections tools employ
+      <t>*Detection Accuracy:* Most of the current PII detections tools employ
       regular expression based techniques or other pattern recognition
       techniques to identify the PII data. Due to the very nature of logs,
       most of the current implementations let administrators to add redaction
@@ -256,16 +257,30 @@
       role or policy based redaction based on personal information annotated
       at source. The figure below illustrates the proposed model.</t>
 
-      <t>Log Template/Schema with Personal data identifiers | Log library V
-      Application ---&gt; Generate Log &rarr; Personal Information Tag logs |
-      V Log Redaction +--- consumer / role based +-- sensitivity based
-      &lt;figure1&gt;</t>
+      <figure anchor="flow" title="Flow">
+        <artwork><![CDATA[
+  Log Template/Schema with personal data identifiers
+                      |
+                      V
+                Log library
+                      |
+                      V
+                  Application
+                      |
+                      V
+              Generate annotated log
+                      |
+                      V
+                  Log redaction +---  consumer / role based
+                                +--   sensitivity based
+             ]]></artwork>
+      </figure>
 
       <section title="Defining the log privacy schema">
         <t>We propose using structured logging where a log schema or a
         template defines standardized identifiers for every personal
         information and each log field is associated with a sensitivity level
-        customized to an use case or log intent.</t>
+        customized to a use case or log intent.</t>
 
         <t>Note that this is not to be confused with a log severity level
         (WARN, INFO&hellip;) - those are typically defined
