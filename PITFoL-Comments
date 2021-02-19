@@ -1,0 +1,106 @@
+PITFoL Comments
+
+Stephen Farrell
+I hope that the work planned here will include some testing of the efficacy of the approach being proposed and not just defining something in the hope that it might help. 
+
+In particular I think this work requires that there exist some good way(s) to identify what needs to be tagged, and I'm not sure
+if that's true today.
+
+IOW the existence of an effective way to spot what needs tagging, without too many errors, is a prerequisite for this work to be useful, so I'd hope the intent is to demonstrate that before the draft became an RFC.
+
+
+
+[PITFoL-AI]:
+
+Add a section to discuss Tagging requirements - what needs to be tagged:
+This is primarily defined by Country Regulations, PDPC (SG), GDPR (EU), PDS2 (UK). CCPA.  Survey Draft/Paper - [section in draft for now] - distill privacy+law  
+
+@santhosh
+
+
+
+Same as above
+
+
+[PITFoL-Authors]:
+
+
+
+I'm not really convinced that static or semi-static sensitivity classifications are a good idea.
+
+ISTM that privacy leaks are often cumulative so while a single MAC address in a single log entry might be at level
+4 (as proposed in the document), if that same MAC address appears in enough places over enough time, then it is really far more sensitive, esp. if it is correlated anywhere with e.g. a name. I don't have a
+better proposal myself though, but that seems like a good thing for the RG to consider.
+
+
+
+
+Tagging / PII marking should be influenced by result log correlation ? 
+feedback/control systems to re-hash sensitivity levels , PII fields 
+Variable sensitivity.
+Occurrences based PII marking or sensitivity 
+Bron Gondwana
+With my developer hat on, I don't find the document particularly actionable - it has an example, but otherwise doesn't clearly articulate how and what to store.
+Instrumenting PII data tagging can be done:
+Developers - privacy aware development -  tag at source 
+Operators - 
+Template / Schema sharing 
+Regular Expressions
+
+
+
+
+
+
+This level of specification is fine if you control all the parts of the system, but at that point this document collapses just being to an entreaty to have an obfuscation layer.  If this is supposed to interoperate between systems by different vendors or within different scopes of control, it should be more rigorous in defining exact structure.
+Legacy logs - out of band of mechanism
+New logs -  what should be the structured logging format.
+
+
+I was also confused by the table of specific items and levels of protection required - it seems both incomplete and somewhat arbitrary in the sensitivity levels given to different fields - and definitely the final form of this document will need to refer to an IANA registry or some other location at which a canonical list of known items can be found.
+
+
+Pull data elements/fields from regulations into a Privacy Registry
+
+
+Regarding that format - if I was designing something like this I would have:
+* name:"CONTAINSPII_personName:Joe Blogs" from that table be written to the log - something like that - prefixing the value such that the formats didn't change at all, and the tagging stayed with the value.
+
+
+Anything doing redaction would redact every unknown CONTAINSPII_{Name}, and have a lookup table to decide whether to redact known items.  This avoids encoding specific PII levels into the log format itself and keeps the tagging with the value through many more conversions (though I do admit it fails on non-string fields).  I may be missing something here though.
+
+
+Suchit Mishra
+Consumer Role Based Access
+
+       A.  Once the log is tagged, access to it can be based on a
+           consumer's role and privilege level.
+
+       B.  A consumer role based policy can define what level of
+           sensitivity they can access.
+I suggest leveraging the attribute based access control as opposed to role based access control to make it more granular
+
+
+
+Redaction Techniques
+
+       A.  Given that the log is tagged, an organization might choose to
+           redact the more sensitive logs i.e. ones above a certain
+           sensitivity level, ones of a certain log type.
+
+       B.  More sophisticated approaches can be developed i.e.
+           completely redact log types username and email, but obfuscate
+           IP address so that a rough location can be garnered from the
+           log record.  In this way, techniques such as differential
+           privacy can be used in tandem to have privacy guarantees for
+           logs while still providing usefulness to developers.
+
+
+I believe Differential privacy techniques have a stronger guarantee than redaction but it comes at a price so enterprises may need to tune the coefficient of elasticity for their needs.
+That is going to be a big challenge but it's the right direction to go.
+
+
+
+
+
+
