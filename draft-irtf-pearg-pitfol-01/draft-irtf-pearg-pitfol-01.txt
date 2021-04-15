@@ -5,14 +5,16 @@
 Network Working Group                                             S. Rao
 Internet-Draft                                                S. Nagaraj
 Intended status: Experimental                                       Grab
-Expires: March 14, 2021                                         S. Sahib
+Expires: <>                                                     S. Sahib
                                                                 R. Guest
                                                               Salesforce
-                                                      September 10, 2020
+                                                             C. Schaefer
+                                                                Ericsson
+                                                     
 
 
                  Personal Information Tagging for Logs
-                       draft-irtf-pearg-pitfol-00
+                       draft-irtf-pearg-pitfol-01
 
 Abstract
 
