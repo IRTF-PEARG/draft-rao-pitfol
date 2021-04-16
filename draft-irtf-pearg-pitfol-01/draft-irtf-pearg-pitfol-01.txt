@@ -13,7 +13,7 @@ Expires: <>                                                     S. Sahib
                                                      
 
 
-                 Personal Information Tagging for Logs
+                 Personal Data Tagging for Logs
                        draft-irtf-pearg-pitfol-01
 
 Abstract
@@ -27,7 +27,7 @@ Abstract
    users.  Personal data identification and anonymization in logs is
    crucial to ensure that no personal data is being inadvertently logged
    and retained which would make the logging system run afoul of laws
-   around storing private information.  This document focuses on
+   around storing personal data.  This document focuses on
    exploring mechanisms that can be used by a generating or intermediary
    logging service to specify personal or sensitive data in log
    message(s), thus allowing a downstream logging server to potentially
@@ -104,7 +104,7 @@ Table of Contents
    they capture, they can often contain sensitive user information
    [link: twitter storing passwords].  Personal data identification and
    redaction is crucial to make sure that a logging application is not
-   storing and potentially leaking users' private information.  There
+   storing and potentially leaking users' personal data.  There
    are known precedents that help discover and extract sensitive data,
    for example, we can define a regular expression or lookup rules that
    will match a person's name, credit card number, email address and so
@@ -119,7 +119,7 @@ Internet-Draft                   PITFoL                   September 2020
    on.  Besides, there are data dictionary based training models that
    can analyze logs and predict presence of sensitive data and
    subsequently redact it.  This document proposes an approach and
-   framework for creating logs with personal information tagged, thus
+   framework for creating logs with personal data tagged, thus
    marking a step towards privacy aware logging.  Once personal
    information is identified in a log, it has to be appropriately tagged
    at source.  Personal data tagging is especially important in cases
@@ -160,8 +160,8 @@ Internet-Draft                   PITFoL                   September 2020
    *Privacy Sensitivity Level:* Sensitivity level defines the degree of
    sensitivity of a data in log template or schema.  Level can be
    enumerated on a scale 1 to 5 and defined as follows: 1 - Low risk for
-   leaking private information and 5 - Very high risk for leaking
-   private information>
+   leaking personal data and 5 - Very high risk for leaking
+   personal data.
 
 
 
@@ -193,7 +193,7 @@ Internet-Draft                   PITFoL                   September 2020
    recognition, checksum matching, building custom logic.
 
    *Inconsistent Representation:* When applications, services or
-   devices, log personal information, there is no consistency in the
+   devices, log personal data, there is no consistency in the
    representation of the information.  For example the name of a user is
    often logged as either "fullname" (e.g.  John Doe) or with
    "firstname" (John) and "lastname" (Doe).
@@ -231,8 +231,8 @@ Internet-Draft                   PITFoL                   September 2020
 5.  Proposed Model
 
    This section describes a reference model to enable tagging of
-   personal information at source and extends it to include an approach
-   of role or policy based redaction based on personal information
+   personal data at source and extends it to include an approach
+   of role or policy based redaction based on personal data
    annotated at source.  The figure below illustrates the proposed
    model.
 
@@ -256,7 +256,7 @@ Internet-Draft                   PITFoL                   September 2020
 5.1.  Defining the log privacy schema
 
    We propose using structured logging where a log schema or a template
-   defines standardized identifiers for every personal information and
+   defines standardized identifiers for every personal data and
    each log field is associated with a sensitivity level customized to a
    use case or log intent.
 
@@ -317,7 +317,7 @@ Internet-Draft                   PITFoL                   September 2020
    | macAddress       | macAddress      | MAC Address    | 4           |
    +------------------+-----------------+----------------+-------------+
 
-                 Personal Information Identifiers Registry
+                 Personal Data Identifiers Registry
 
    If an organization already uses structured logging with a log schema,
    then a privacy sensitivity level can be an additional attribute for
@@ -430,7 +430,7 @@ Internet-Draft                   PITFoL                   September 2020
    val_jobno="256937" object="TEST" object_library="CUS9242"
    object_type="*FILE" pgm_name="" pgm_libr="" workstation=""]
 
-   Log Output with Personal Information Tagging
+   Log Output with Personal Data Tagging
 
    <120> Apr 18 16:32:58 10.0.1.11 QAUDJRN: [AF@0 event="AF-Authority
    failure" violation="A-Not authorized to object" actual_type="AF-A"
@@ -455,7 +455,7 @@ Internet-Draft                   PITFoL                   September 2020
 7.  IANA Considerations
 
    IANA can consider defining a new central respository for Personal
-   Information name and identifier registries to used in logging
+   Data name and identifier registries to used in logging
    personal information.  The personal identifier registry would
    enumerate namee and identifiers as described in Section 5.1.
 
@@ -471,7 +471,7 @@ Internet-Draft                   PITFoL                   September 2020
 
    Encouraging developers to think carefully about what kind of data
    they're logging is a good practice and will lead to fewer incidents
-   of private data being inadvertently logged.  An organization might
+   of personal data being inadvertently logged.  An organization might
    choose to have an unstructured log type for letting developers log
    data that truly do not fit anywhere else.  This is still better than
    not having structured privacy-aware logging, because the potential
@@ -485,7 +485,7 @@ Internet-Draft                   PITFoL                   September 2020
    Log data is often collated, propagated, transformed, loaded into
    different formats or data models for purposes of analytics,
    troubleshooting and visualization.  In such cases, it is necessary
-   and critical to ensure that personal information tagging and
+   and critical to ensure that personal data tagging and
    annotations is preserved and forwarded across format transformations.
 
    If the privacy marking or classification changes for a log, for
